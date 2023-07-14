@@ -10,20 +10,91 @@ body {
 	height: 100dvh;
 	display: grid;
 	place-items: center;
+	overflow: hidden;
 }
 .navbar {
+	--width: 300px;
+	--height: 200px;
+	--border-radius: 2.5rem;
 	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	width: 300px;
 	padding: 1rem;
-	background: red;
-	border-top-right-radius: 1.5rem;
-	border-bottom-right-radius: 1.5rem;
 	display: grid;
-	place-items: center;
 	text-align: center;
+	transition: 350ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+.nav1,
+.nav2 {
+	top: 0;
+	bottom: 0;
+	width: var(--width);
+}
+.nav3,
+.nav4 {
+	left: 0;
+	right: 0;
+	height: var(--height);
+}
+.nav1 {
+	right: 0;
+	border-top-left-radius: var(--border-radius);
+	border-bottom-left-radius: var(--border-radius);
+	background: blue;
+	translate: 100%;
+}
+.nav2 {
+	left: 0;
+	border-top-right-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+	background: red;
 	translate: -100%;
-	transition: 150ms ease-in-out;
+	/*  */
+	z-index: 999;
+	display: grid;
+	justify-content: center;
+}
+.nav3 {
+	top: 0;
+	border-bottom-left-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+	background: gold;
+	translate: 0 -100%;
+}
+.nav4 {
+	bottom: 0;
+	border-top-left-radius: var(--border-radius);
+	border-top-right-radius: var(--border-radius);
+	background: lime;
+	translate: 0 100%;
+}
+
+.navlist {
+	display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+	margin-block: 1.5rem 1rem;
+
+	& li {
+		list-style: none;
+
+		&:last-child {
+			margin-top: auto;
+		}
+
+		& a {
+			color: white;
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			gap: 2rem;
+			padding-inline: 0.5rem;
+
+			& p {
+				font-size: 1.7rem;
+			}
+
+			& i {
+				font-size: 2rem;
+			}
+		}
+	}
 }
